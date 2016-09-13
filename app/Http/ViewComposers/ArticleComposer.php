@@ -8,13 +8,14 @@ use Illuminate\View\View;
 class ArticleComposer
 {
 
-    protected $articles;
+    static $articles;
 
 
-    public function __construct(Post $articles)
+    public function __construct(Post $post)
     {
         // Dependencies automatically resolved by service container...
-        $this->$articles = $articles;
+        $post = Post::get();
+        self::$articles = $post;
     }
 
     /**
@@ -25,6 +26,8 @@ class ArticleComposer
      */
     public function compose(View $view)
     {
-        $view->with('name', $this->$articles->count());
+        //dd($this->articles);
+        //dd(self::$articles);
+        $view->with('articles', self::$articles);
     }
 }
