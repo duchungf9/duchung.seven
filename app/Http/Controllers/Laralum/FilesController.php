@@ -27,7 +27,17 @@ class FilesController extends Controller
         Laralum::permissionToAccess('laralum.files.access');
 
         $files = Laralum::files();
-
+        //$images = [];
+        //$a_files = [];
+        //foreach($files as $file){
+        //    $ext = explode('.',$file);
+        //    $ext =  end($ext);
+        //    if(in_array($ext,['jpg','png','gif'])){
+        //        $images[] = $file;
+        //    }else{
+        //        $a_files[] = $file;
+        //    }
+        //}
         return view('laralum/files/index', ['files' => $files]);
     }
 

@@ -65,6 +65,15 @@
                                   </div>
                                   <div class="description">
                                       <center>
+                                          <?php
+                                              $ext = explode('.',$file);
+                                              $ext =  end($ext);
+                                          ?>
+                                          @if(in_array($ext,['jpg','png','gif']))
+                                                  <img src="/images/{{$file}}" style="width: 100%"/>
+                                          @else
+                                              <h2>cac</h2>
+                                          @endif
                                           <a href="{{ route('Laralum::files_download', ['file' => $file]) }}" class="ui no-disable button download">
                                               {{ trans('laralum.download') }}
                                           </a>

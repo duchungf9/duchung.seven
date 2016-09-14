@@ -171,7 +171,8 @@
                    <div class="field @if($error) error @endif">
                         <label>{{ $show_field }}</label>
                         <input type="{{ $input_type }}"  id="{{ $field }}" name="{{ $field }}" placeholder="{{ $show_field }}" value="{{ $value }}">
-                        @if($error)
+                        <a class="btn btn-danger no-disable image-pick" href="javascript:void(0);">...</a>
+                   @if($error)
                             <div class="ui pointing red basic label">
                                 {{ $error }}
                             </div>
@@ -212,7 +213,6 @@
 
 
            @elseif($type == 'text')
-
                 <!-- TEXT COLUMN -->
                 <div class="field @if($error) error @endif">
                     <label>{{ $show_field }}</label>
@@ -299,7 +299,6 @@
                <!-- ALL OTHER COLUMN CONFIRMATION -->
                <div class="field @if($error) error @endif">
                     <label>{{ $show_field }} {{ trans('laralum.confirmation') }}</label>
-                    <input type="{{ $input_type }}"  id="{{ $field }}_confirmation" name="{{ $field }}_confirmation" placeholder="{{ $show_field }} confirmation" value="{{ $value }}">
                     @if($error)
                         <div class="ui pointing red basic label">
                             {{ $error }}
@@ -315,6 +314,21 @@
    @endif
 
 @endforeach
+<nav class="menu1">
+    <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+    <label class="menu-open-button" for="menu-open">
+        <span class="lines line-1"></span>
+        <span class="lines line-2"></span>
+        <span class="lines line-3"></span>
+    </label>
+
+    <a href="#" class="menu-item blue no-disable image-upload" style="font-size: 10px;">UPLOAD IMAGE</a>
+    <a href="#" class="menu-item green no-disable"> <i class="fa fa-coffee"></i> </a>
+    <a href="#" class="menu-item red no-disable"> <i class="fa fa-heart"></i> </a>
+    <a href="#" class="menu-item purple no-disable"> <i class="fa fa-microphone"></i> </a>
+    <a href="#" class="menu-item orange no-disable"> <i class="fa fa-star"></i> </a>
+    <a href="#" class="menu-item lightblue no-disable"> <i class="fa fa-diamond"></i> </a>
+</nav>
 @section('js')
     @if(isset($cc_id) and isset($cc_value))
         <script>
@@ -322,4 +336,9 @@
             $("#{{ $cc_id }}_dropdown").dropdown("refresh");
         </script>
     @endif
+    <script>
+        $(".image-upload").on('click',function(){
+            $('body').append('')
+        });
+    </script>
 @endsection
